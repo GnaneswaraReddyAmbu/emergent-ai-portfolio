@@ -1,51 +1,45 @@
 // app/components/Projects.tsx
 'use client'
 import { motion } from 'framer-motion'
-import { ExternalLink, Github, Brain, MessageSquare, BarChart3 } from 'lucide-react'
+import { Brain, Cloud, Search } from 'lucide-react'
 import { TechBadge } from './ui/TechBadge'
 
 const projects = [
     {
-        title: 'AI Copilot for Developers',
-        description: 'GitHub Copilot + OpenAI integrated bot that auto-generates unit tests, SQL, and code refactors.',
+        title: 'CBRE Innovation Studio',
+        description: 'Enterprise multi-cloud engineering platform for secure AI and data workspaces, lifecycle operations, React UX, and governed model access.',
         icon: Brain,
-        tech: ['Java', 'Node.js', 'LangChain', 'GPT API'],
+        tech: ['FastAPI', 'React', 'TypeScript', 'Coder', 'PostgreSQL', 'Azure OpenAI', 'LiteLLM'],
         features: [
-            'Auto-generates unit tests and SQL queries',
-            'Code refactoring and optimization',
-            'Integration with popular IDEs',
-            'Custom training on codebase patterns'
-        ],
-        github: '#',
-        demo: '#'
+            'Project creation, workspace start/stop controls, extension requests, application provisioning, and usage visibility',
+            'FastAPI services with async SQLAlchemy, Alembic, PostgreSQL, background polling, structured logs, and correlation IDs',
+            'React, TypeScript, Vite, Zustand, Axios screens with guarded routes, reusable components, and clear loading/error states',
+            'Snowflake OAuth, Azure OpenAI through LiteLLM, Coder templates, and cloud guardrails across AWS, Azure, and GCP'
+        ]
     },
     {
-        title: 'AI Dispute Analyzer',
-        description: 'NLP pipeline to classify disputes using transformer models (Hugging Face + SageMaker).',
-        icon: BarChart3,
-        tech: ['Python', 'AWS Lambda', 'DynamoDB', 'React', 'Hugging Face'],
+        title: 'Enterprise Disputes Platform',
+        description: 'High-volume dispute-processing and case-management platform combining Java services, event workflows, search, cloud deployments, and web interfaces.',
+        icon: Search,
+        tech: ['Java 17/21', 'Spring Boot', 'React', 'Angular', 'Kafka', 'Elasticsearch', 'AWS'],
         features: [
-            'Real-time dispute classification',
-            'Transformer model integration',
-            'Automated fraud detection',
-            'Interactive analytics dashboard'
-        ],
-        github: '#',
-        demo: '#'
+            'REST and GraphQL APIs with validation, response contracts, exception handling, pagination, and security controls',
+            'Kafka workflows with retry handling, idempotency, consumer-group tuning, dead-letter scenarios, and traceability',
+            'React and Angular dashboards, case details, search, filters, workflow actions, and operational views',
+            'AWS ECS/EKS, Lambda, SQS, S3, DynamoDB, RDS, IAM, CloudWatch, Splunk, and ELK troubleshooting'
+        ]
     },
     {
-        title: 'GenAI Conversational Assistant',
-        description: 'Internal chatbot trained on project docs to automate developer queries.',
-        icon: MessageSquare,
-        tech: ['React', 'FastAPI', 'GPT-4', 'Pinecone'],
+        title: 'Digital Banking Microservices',
+        description: 'Secure online-banking, trading, payments, testing, and real-time update capabilities across Spring Boot APIs and React/Angular applications.',
+        icon: Cloud,
+        tech: ['Java 11/17', 'Spring Boot', 'React', 'Angular', 'Kafka', 'Redis', 'Azure AKS'],
         features: [
-            'Document-aware responses',
-            'Contextual memory',
-            'Multi-format file support',
-            'Real-time collaboration'
-        ],
-        github: '#',
-        demo: '#'
+            'Spring Security with OAuth2, JWT, API gateway policies, role-based authorization, and customer/internal-user access controls',
+            'Reusable React and Angular components, routing, forms, state management, and cross-browser responsive layouts',
+            'Kafka, WebSocket, Redis, Cassandra, MySQL, Azure AKS, App Service, Functions, Cosmos DB, and Key Vault integrations',
+            'Fortify, Black Duck, SonarQube, Prometheus, Grafana, ELK, Splunk, CI/CD, Terraform, and release-readiness support'
+        ]
     }
 ]
 
@@ -66,7 +60,8 @@ export default function Projects() {
             </span>
                     </h2>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                        Exploring the frontiers of emergent AI through practical applications and cutting-edge implementations
+                        Representative enterprise platforms across AI workspaces, dispute processing, digital banking,
+                        and full-stack application modernization
                     </p>
                 </motion.div>
 
@@ -114,25 +109,10 @@ export default function Projects() {
                                 ))}
                             </ul>
 
-                            <div className="flex gap-4 pt-4 border-t border-gray-800">
-                                <motion.a
-                                    href={project.github}
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
-                                >
-                                    <Github size={18} />
-                                    Code
-                                </motion.a>
-                                <motion.a
-                                    href={project.demo}
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="flex items-center gap-2 text-gray-400 hover:text-secondary transition-colors"
-                                >
-                                    <ExternalLink size={18} />
-                                    Live Demo
-                                </motion.a>
+                            <div className="pt-4 border-t border-gray-800">
+                                <p className="text-gray-500 text-sm">
+                                    Enterprise delivery experience with confidential client systems.
+                                </p>
                             </div>
                         </motion.div>
                     ))}
@@ -146,7 +126,7 @@ export default function Projects() {
                     className="text-center mt-12"
                 >
                     <p className="text-gray-400 mb-6">
-                        Interested in collaborating on AI projects?
+                        Interested in full-stack platforms, cloud-native microservices, or AI workspace engineering?
                     </p>
                     <motion.a
                         href="#contact"

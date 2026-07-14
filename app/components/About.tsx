@@ -7,22 +7,22 @@ const strengths = [
     {
         icon: Code,
         title: 'Full Stack Development',
-        description: 'Java 17/21, Spring Boot, Microservices, React, Angular, Next.js'
+        description: 'Java, Spring Boot, Python, FastAPI, React, Angular, TypeScript, Node.js'
     },
     {
         icon: Cloud,
-        title: 'Cloud & DevOps',
-        description: 'AWS & Azure, Kubernetes, Terraform, CI/CD, Docker'
+        title: 'Cloud-Native Platforms',
+        description: 'AWS, Azure, GCP, Docker, Kubernetes, Terraform, Helm, CI/CD'
     },
     {
         icon: Brain,
-        title: 'AI Integration',
-        description: 'Generative AI, NLP, SageMaker, Hugging Face, LangChain'
+        title: 'AI Engineering',
+        description: 'Azure OpenAI, LiteLLM, LLM APIs, prompt workflows, NLP, model integration'
     },
     {
         icon: Shield,
-        title: 'Security & Compliance',
-        description: 'OAuth2, JWT, SAML, PCI-DSS, HIPAA, DevSecOps'
+        title: 'Security & Reliability',
+        description: 'OAuth2/OIDC, JWT, SAML, RBAC, observability, incident response'
     }
 ]
 
@@ -43,9 +43,10 @@ export default function About() {
             </span>
                     </h2>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                        I&apos;m a <span className="text-secondary font-semibold">Full Stack & AI Integration Engineer</span> with over{' '}
-                        <span className="text-accent font-semibold">10 years of experience</span> in building enterprise applications,
-                        distributed systems, and cloud-native architectures.
+                        I&apos;m a <span className="text-secondary font-semibold">Full Stack Developer and AI Engineer</span> with
+                        nearly <span className="text-accent font-semibold">11 years of experience</span> building enterprise
+                        applications across financial services, commercial real estate, telecommunications, retail, and
+                        retirement services.
                     </p>
                 </motion.div>
 
@@ -58,10 +59,10 @@ export default function About() {
                     >
                         <h3 className="text-2xl font-bold mb-6 text-white">Core Focus</h3>
                         <p className="text-gray-300 text-lg leading-relaxed">
-                            My work focuses on <span className="text-secondary">emergent intelligence</span> — blending{' '}
-                            <span className="text-accent">AI, automation, and scalable engineering</span> to design adaptive
-                            systems that think and evolve. I specialize in creating solutions that bridge traditional
-                            enterprise architecture with cutting-edge AI capabilities.
+                            My work focuses on <span className="text-secondary">end-to-end enterprise delivery</span> across
+                            backend services, web applications, cloud automation, and governed AI platforms. I&apos;m comfortable
+                            owning <span className="text-accent">requirements, architecture, coding, API and UI integration,
+                            automated testing, CI/CD, observability, incident analysis, and technical mentoring</span>.
                         </p>
                     </motion.div>
 
@@ -98,8 +99,8 @@ export default function About() {
                     className="bg-gradient-to-r from-primary to-accent rounded-2xl p-8 text-center"
                 >
                     <p className="text-2xl font-light italic">
-                        &ldquo;Transforming complex business challenges into intelligent, scalable solutions through
-                        the power of emergent AI and robust engineering principles.&rdquo;
+                        &ldquo;Balancing delivery timelines, maintainability, security, and operational reliability across
+                        full-stack enterprise systems and AI-enabled platforms.&rdquo;
                     </p>
                 </motion.div>
             </div>

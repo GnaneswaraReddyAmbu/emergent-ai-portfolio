@@ -1,7 +1,7 @@
 // app/components/Hero.tsx
 'use client'
 import { motion } from 'framer-motion'
-import { ChevronDown, Mail, Linkedin, Phone, Github } from 'lucide-react'
+import { ChevronDown, Linkedin, Phone, MapPin, Globe } from 'lucide-react'
 
 export default function Hero() {
     return (
@@ -60,8 +60,8 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="text-xl md:text-2xl lg:text-3xl text-gray-200 mb-8 font-light"
                 >
-                    Bridging <span className="text-secondary font-semibold">enterprise engineering</span> with{' '}
-                    <span className="text-accent font-semibold">next-gen AI automation</span>
+                    <span className="text-secondary font-semibold">Lead Full Stack Developer</span> &amp;{' '}
+                    <span className="text-accent font-semibold">AI Engineer</span>
                 </motion.h2>
 
                 <motion.p
@@ -70,7 +70,8 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.4 }}
                     className="text-lg md:text-xl text-gray-300 mb-12 max-w-3xl mx-auto italic font-light"
                 >
-                    &ldquo;From code to cognition — I build systems that learn.&rdquo;
+                    Building enterprise applications across Java, Spring Boot, Python, FastAPI, React,
+                    Angular, cloud-native microservices, and governed AI workspaces.
                 </motion.p>
 
                 <motion.div
@@ -85,17 +86,17 @@ export default function Hero() {
                         whileTap={{ scale: 0.95 }}
                         className="group relative bg-gradient-to-r from-secondary to-accent text-dark-900 px-8 py-4 rounded-xl font-bold text-lg shadow-2xl shadow-secondary/25 transition-all duration-300 overflow-hidden"
                     >
-                        <span className="relative z-10">Start a Project</span>
+                        <span className="relative z-10">Contact Me</span>
                         <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
                     </motion.a>
 
                     <motion.a
-                        href="#projects"
+                        href="#experience"
                         whileHover={{ scale: 1.05, y: -2 }}
                         whileTap={{ scale: 0.95 }}
                         className="group border-2 border-secondary text-secondary px-8 py-4 rounded-xl font-bold text-lg backdrop-blur-sm hover:bg-secondary/10 transition-all duration-300"
                     >
-                        View My Work
+                        View Experience
                     </motion.a>
                 </motion.div>
 
@@ -107,15 +108,16 @@ export default function Hero() {
                     className="flex flex-wrap justify-center gap-6 text-gray-300 mb-12"
                 >
                     {[
-                        { icon: Mail, text: 'eswar.javadeveloper@gmail.com', href: 'mailto:eswar.javadeveloper@gmail.com' },
                         { icon: Linkedin, text: 'LinkedIn', href: 'https://linkedin.com/in/gnaneswara-ambu-281428159' },
                         { icon: Phone, text: '(510) 320-8797', href: 'tel:+15103208797' },
-                        { icon: Github, text: 'GitHub', href: 'https://github.com/gnaneswara' },
+                        { icon: MapPin, text: 'Dallas-Fort Worth, TX', href: '#contact' },
+                        { icon: Globe, text: 'Portfolio', href: 'https://gnaneswarareddyambu-portfolio.vercel.app' },
+                        { icon: Globe, text: 'ambuaventa.com', href: 'https://ambuaventa.com' },
                     ].map((item, index) => (
                         <motion.a
                             key={item.text}
                             href={item.href}
-                            target={item.text === 'LinkedIn' || item.text === 'GitHub' ? '_blank' : '_self'}
+                            target={item.text === 'LinkedIn' || item.text === 'Portfolio' || item.text === 'ambuaventa.com' ? '_blank' : '_self'}
                             rel="noopener noreferrer"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}

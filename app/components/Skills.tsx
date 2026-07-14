@@ -7,42 +7,42 @@ import { TechBadge } from './ui/TechBadge'
 const skillCategories = [
     {
         name: 'Languages',
-        skills: ['Java 17/21', 'Python', 'TypeScript', 'JavaScript', 'SQL'],
+        skills: ['Java 8/11/17/21', 'Python', 'JavaScript', 'TypeScript', 'SQL/PLSQL', 'Bash'],
         color: 'from-blue-500 to-cyan-500'
     },
     {
-        name: 'Frontend',
-        skills: ['React 18+', 'Angular 14+', 'Next.js', 'Redux', 'Tailwind CSS'],
+        name: 'Backend',
+        skills: ['Spring Boot', 'Spring Security', 'FastAPI', 'Node.js/Express', 'REST/SOAP', 'GraphQL/gRPC'],
         color: 'from-green-500 to-emerald-500'
     },
     {
-        name: 'Backend',
-        skills: ['Spring Boot', 'Node.js', 'Express.js', 'GraphQL', 'REST APIs'],
+        name: 'Frontend',
+        skills: ['React', 'Angular', 'Next.js', 'Redux Toolkit/NgRx', 'Zustand/React Query', 'Tailwind CSS'],
         color: 'from-purple-500 to-pink-500'
     },
     {
-        name: 'Cloud & DevOps',
-        skills: ['AWS', 'Azure', 'Docker', 'Kubernetes', 'Terraform', 'Jenkins'],
+        name: 'AI & Data',
+        skills: ['Azure OpenAI', 'LiteLLM', 'LLM APIs', 'Hugging Face', 'SageMaker/Azure ML', 'Spark/Kafka Streams'],
         color: 'from-orange-500 to-red-500'
     },
     {
-        name: 'AI/ML',
-        skills: ['SageMaker', 'Azure ML', 'spaCy', 'Hugging Face', 'LangChain'],
+        name: 'Cloud',
+        skills: ['AWS EKS/ECS', 'Lambda/S3/RDS', 'SQS/SNS/API Gateway', 'Azure AKS/Functions', 'Cosmos DB/Key Vault', 'GCP Integration'],
         color: 'from-yellow-500 to-orange-500'
     },
     {
-        name: 'Database',
-        skills: ['PostgreSQL', 'MySQL', 'Oracle', 'DynamoDB', 'MongoDB', 'Redis'],
+        name: 'DevOps / SRE',
+        skills: ['Docker/Kubernetes', 'Terraform/Helm', 'ArgoCD', 'Jenkins/GitLab CI', 'Spinnaker', 'Blue-Green/Canary'],
         color: 'from-indigo-500 to-purple-500'
     },
     {
-        name: 'Testing',
-        skills: ['JUnit', 'Mockito', 'Jest', 'Cypress', 'JMeter', 'Cucumber'],
+        name: 'Messaging / Search',
+        skills: ['Apache Kafka', 'JMS/SQS/EventBridge', 'Redis', 'Elasticsearch', 'ELK', 'Query DSL/Aggregations'],
         color: 'from-teal-500 to-blue-500'
     },
     {
-        name: 'Security',
-        skills: ['OAuth2', 'JWT', 'SAML', 'DevSecOps', 'OWASP', 'PCI-DSS', 'HIPAA'],
+        name: 'Security / Quality',
+        skills: ['OAuth2/OIDC', 'JWT/SAML/RBAC', 'mTLS/OWASP', 'JUnit/Mockito', 'pytest/Jest/Cypress', 'SonarQube/Fortify'],
         color: 'from-red-500 to-pink-500'
     }
 ]
@@ -66,7 +66,7 @@ export default function Skills() {
             </span>
                     </h2>
                     <p className="text-xl text-gray-300">
-                        Comprehensive expertise across the full technology stack
+                        Full-stack, AI, cloud, DevOps, security, and production-support expertise
                     </p>
                 </motion.div>
 
@@ -137,9 +137,9 @@ export default function Skills() {
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {[
                             { skill: 'Java/Spring Boot', level: 95 },
-                            { skill: 'AWS/Azure Cloud', level: 90 },
-                            { skill: 'React/Angular', level: 88 },
-                            { skill: 'AI/ML Integration', level: 85 }
+                            { skill: 'React/Angular', level: 90 },
+                            { skill: 'Cloud/DevOps', level: 90 },
+                            { skill: 'AI Engineering', level: 88 }
                         ].map((item, index) => (
                             <div key={item.skill} className="text-center">
                                 <div className="relative w-20 h-20 mx-auto mb-4">

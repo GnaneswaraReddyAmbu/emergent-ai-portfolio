@@ -9,9 +9,9 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-    title: 'Gnaneswara Reddy Ambu - Emergent AI Portfolio',
-    description: 'Bridging enterprise engineering with next-gen AI automation',
-    keywords: ['AI Engineer', 'Full Stack Developer', 'Java', 'Spring Boot', 'React', 'AWS'],
+    title: 'Gnaneswara Reddy Ambu - Lead Full Stack Developer & AI Engineer',
+    description: 'Lead Full Stack Developer and AI Engineer specializing in Java, Spring Boot, Python, FastAPI, React, Angular, cloud-native microservices, and governed AI platforms.',
+    keywords: ['Lead Full Stack Developer', 'AI Engineer', 'Java', 'Spring Boot', 'Python', 'FastAPI', 'React', 'Angular', 'Microservices', 'AWS', 'Azure', 'GCP'],
 }
 
 export default function RootLayout({

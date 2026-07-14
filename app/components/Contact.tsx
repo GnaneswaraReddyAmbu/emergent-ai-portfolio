@@ -2,7 +2,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { Mail, Linkedin, Phone, MapPin, Send, CheckCircle, XCircle } from 'lucide-react'
+import { Mail, Linkedin, Phone, MapPin, Globe, Send, CheckCircle, XCircle } from 'lucide-react'
 
 export default function Contact() {
     const [formData, setFormData] = useState({
@@ -56,8 +56,8 @@ export default function Contact() {
         {
             icon: Mail,
             label: 'Email',
-            value: 'eswar.javadeveloper@gmail.com',
-            href: 'mailto:ambureddy1@gmail.com'
+            value: 'Gnaneswarareddy1ambu@gmail.com',
+            href: 'mailto:Gnaneswarareddy1ambu@gmail.com'
         },
         {
             icon: Linkedin,
@@ -74,8 +74,14 @@ export default function Contact() {
         {
             icon: MapPin,
             label: 'Location',
-            value: 'Dallas, TX & Tampa, FL',
+            value: 'Dallas-Fort Worth, TX',
             href: '#'
+        },
+        {
+            icon: Globe,
+            label: 'Websites',
+            value: 'Portfolio | ambuaventa.com',
+            href: 'https://ambuaventa.com'
         }
     ]
 
@@ -95,8 +101,8 @@ export default function Contact() {
             </span>
                     </h2>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                        Ready to discuss AI innovation, collaboration opportunities, or your next project?
-                        Let&apos;s connect and build something amazing together.
+                        Ready to discuss backend platforms, cloud-native microservices, secure AI workspaces,
+                        or enterprise engineering leadership? Let&apos;s connect.
                     </p>
                 </motion.div>
 
@@ -117,8 +123,8 @@ export default function Contact() {
                                 <motion.a
                                     key={method.label}
                                     href={method.href}
-                                    target={method.label === 'LinkedIn' ? '_blank' : '_self'}
-                                    rel={method.label === 'LinkedIn' ? 'noopener noreferrer' : ''}
+                                    target={method.label === 'LinkedIn' || method.label === 'Websites' ? '_blank' : '_self'}
+                                    rel={method.label === 'LinkedIn' || method.label === 'Websites' ? 'noopener noreferrer' : ''}
                                     initial={{ opacity: 0, x: -30 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -148,9 +154,9 @@ export default function Contact() {
                         >
                             <h4 className="text-white font-bold mb-3">Current Focus</h4>
                             <p className="text-gray-200 text-sm leading-relaxed">
-                                I&apos;m currently exploring advanced AI integration patterns, emergent system architectures,
-                                and opportunities to bridge enterprise systems with next-generation AI capabilities.
-                                Open to discussing innovative projects and research collaborations.
+                                I&apos;m currently leading CBRE Innovation Studio, a secure multi-cloud AI workspace
+                                platform built with Coder, FastAPI, PostgreSQL, Azure AD SSO, Snowflake, Azure OpenAI,
+                                and LiteLLM across AWS, Azure, and GCP.
                             </p>
                         </motion.div>
                     </motion.div>
@@ -242,7 +248,7 @@ export default function Contact() {
                                     {submitStatus === 'success' ? (
                                         <>
                                             <CheckCircle size={20} />
-                                            <span>Message sent successfully! I'll get back to you soon.</span>
+                                            <span>Message sent successfully! I&apos;ll get back to you soon.</span>
                                         </>
                                     ) : (
                                         <>

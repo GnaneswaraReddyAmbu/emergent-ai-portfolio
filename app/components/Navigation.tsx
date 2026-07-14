@@ -2,7 +2,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Code2, Brain } from 'lucide-react'
+import { Menu, X, Brain } from 'lucide-react'
 
 const navItems = [
     { name: 'About', href: '#about' },
@@ -66,7 +66,7 @@ export default function Navigation() {
                             <div className="text-xl font-bold text-gradient bg-gradient-to-r from-secondary to-accent">
                                 Gnaneswara Reddy Ambu
                             </div>
-                            <div className="text-xs text-gray-400 -mt-1">Software Developer</div>
+                            <div className="text-xs text-gray-400 -mt-1">Lead Full Stack Developer & AI Engineer</div>
                         </div>
                     </motion.div>
 
