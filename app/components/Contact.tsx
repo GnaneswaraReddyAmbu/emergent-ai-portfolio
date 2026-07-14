@@ -13,6 +13,7 @@ export default function Contact() {
     })
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null)
+    const [submitErrorMessage, setSubmitErrorMessage] = useState<string | null>(null)
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData(prev => ({
@@ -25,6 +26,7 @@ export default function Contact() {
         e.preventDefault()
         setIsSubmitting(true)
         setSubmitStatus(null)
+        setSubmitErrorMessage(null)
 
         try {
             const response = await fetch('/api/send-email', {
@@ -42,10 +44,12 @@ export default function Contact() {
                 setFormData({ name: '', email: '', subject: '', message: '' })
             } else {
                 setSubmitStatus('error')
+                setSubmitErrorMessage(result?.error || 'Failed to send message. Please try again or email me directly.')
                 console.error('Failed to send email:', result.error)
             }
         } catch (error) {
             setSubmitStatus('error')
+            setSubmitErrorMessage('Network error while sending message. Please try again.')
             console.error('Error sending email:', error)
         } finally {
             setIsSubmitting(false)
@@ -253,7 +257,7 @@ export default function Contact() {
                                     ) : (
                                         <>
                                             <XCircle size={20} />
-                                            <span>Failed to send message. Please try again or email me directly.</span>
+                                            <span>{submitErrorMessage || 'Failed to send message. Please try again or email me directly.'}</span>
                                         </>
                                     )}
                                 </motion.div>

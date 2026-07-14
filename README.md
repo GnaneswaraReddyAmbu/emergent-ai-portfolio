@@ -2,6 +2,29 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+## Contact Form Email Setup
+
+Create local env settings:
+
+```bash
+cp .env.example .env.local
+```
+
+Spring properties map to this Next.js setup as follows:
+
+- `spring.mail.host` -> `SMTP_HOST`
+- `spring.mail.port` -> `SMTP_PORT`
+- `spring.mail.username` -> `SMTP_USER`
+- `spring.mail.password` -> `SMTP_PASS`
+- `spring.mail.properties.mail.smtp.starttls.enable` -> `SMTP_REQUIRE_TLS=true`
+
+For Gmail with port `587`, keep:
+
+- `SMTP_SECURE=false`
+- `SMTP_REQUIRE_TLS=true`
+
+After updating `.env.local`, restart the dev server.
+
 First, run the development server:
 
 ```bash

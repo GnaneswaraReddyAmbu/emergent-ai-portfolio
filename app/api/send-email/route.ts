@@ -1,6 +1,12 @@
 // app/api/send-email/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import * as nodemailer from 'nodemailer';
+
+const parseBoolean = (value: string | undefined, defaultValue: boolean) => {
+    if (!value) return defaultValue;
+    return value.toLowerCase() === 'true';
+};
+
 export async function POST(request: NextRequest) {
     try {
         const { name, email, subject, message } = await request.json();
@@ -22,19 +28,45 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        // Create transporter using environment variables
+        const smtpHost = process.env.SMTP_HOST?.trim() || 'smtp.gmail.com';
+        const smtpPort = Number(process.env.SMTP_PORT || 587);
+        const smtpSecure = parseBoolean(process.env.SMTP_SECURE, smtpPort === 465);
+        const smtpRequireTLS = parseBoolean(process.env.SMTP_REQUIRE_TLS, smtpPort === 587);
+        const smtpUser = (process.env.SMTP_USER || process.env.EMAIL_USER || '').trim();
+        const smtpPass = (process.env.SMTP_PASS || process.env.EMAIL_PASS || '').trim();
+        const smtpFrom = (process.env.SMTP_FROM || smtpUser).trim();
+        const smtpTo = (process.env.SMTP_TO || 'ambureddy1@gmail.com').trim();
+
+        if (!Number.isFinite(smtpPort)) {
+            return NextResponse.json(
+                { error: 'Server email config is invalid: SMTP_PORT must be a number.' },
+                { status: 500 }
+            );
+        }
+
+        if (!smtpUser || !smtpPass) {
+            return NextResponse.json(
+                { error: 'Server email config is missing SMTP_USER/SMTP_PASS.' },
+                { status: 500 }
+            );
+        }
+
+        // Create transporter using explicit SMTP settings (works with Gmail STARTTLS on 587).
         const transporter = nodemailer.createTransport({
-            service: 'gmail', // You can change this to your email service
+            host: smtpHost,
+            port: smtpPort,
+            secure: smtpSecure,
+            requireTLS: smtpRequireTLS,
             auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS, // Use App Password for Gmail
+                user: smtpUser,
+                pass: smtpPass,
             },
         });
 
         // Email content
         const mailOptions = {
-            from: process.env.EMAIL_USER,
-            to: 'ambureddy1@gmail.com', // Your email address
+            from: smtpFrom,
+            to: smtpTo,
             replyTo: email,
             subject: `Portfolio Contact: ${subject}`,
             html: `
@@ -82,6 +114,9 @@ export async function POST(request: NextRequest) {
       `,
         };
 
+        // Verify auth/connectivity first so config issues fail with a clear message.
+        await transporter.verify();
+
         // Send email
         await transporter.sendMail(mailOptions);
 
@@ -90,11 +125,16 @@ export async function POST(request: NextRequest) {
             { status: 200 }
         );
 
-    } catch (error) {
+    } catch (error: unknown) {
         console.error('Error sending email:', error);
 
+        const maybeError = error as { code?: string };
+        const errorMessage = maybeError.code === 'EAUTH'
+            ? 'SMTP authentication failed. Check app password and SMTP_USER.'
+            : 'Failed to send email. Please try again later.';
+
         return NextResponse.json(
-            { error: 'Failed to send email. Please try again later.' },
+            { error: errorMessage },
             { status: 500 }
         );
     }
